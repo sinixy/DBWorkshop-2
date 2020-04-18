@@ -23,7 +23,7 @@ CREATE TABLE States (
 
 CREATE TABLE County (
     county VARCHAR(63) NOT NULL PRIMARY KEY,
-    state VARCHAR(63) NOT NULL REFERENCES States(statename)
+    statename VARCHAR(63) NOT NULL REFERENCES States(statename)
     );
 
 CREATE TABLE City (
