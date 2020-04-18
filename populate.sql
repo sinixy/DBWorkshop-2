@@ -168,6 +168,10 @@ INSERT INTO Periods(periodid, starttime, endtime, timezone)
 VALUES(17, '2016-11-07 21:37:00','2016-11-07 22:17:00','US/Mountain');
 INSERT INTO Periods(periodid, starttime, endtime, timezone)
 VALUES(18, '2016-11-17 23:09:00','2016-11-17 23:29:00','US/Mountain');
+INSERT INTO Periods(periodid, starttime, endtime, timezone)
+VALUES(19, '2016-01-06 20:37:00','2016-01-06 20:51:00','US/Mountain');
+INSERT INTO Periods(periodid, starttime, endtime, timezone)
+VALUES(20, '2016-06-03 12:56:00','2016-06-03 13:56:00','US/Eastern');
 
 -- Event
 INSERT INTO Event(EventId, eType, Severity, periodid, airportcode)
@@ -206,3 +210,7 @@ INSERT INTO Event(EventId, eType, Severity, periodid, airportcode)
 VALUES('W-496','Cold','Severe',17,'K04V');
 INSERT INTO Event(EventId, eType, Severity, periodid, airportcode)
 VALUES('W-502','Storm','Severe',18,'K04V');
+INSERT INTO Event(EventId, eType, Severity, periodid, airportcode)
+VALUES('W-1725','Rain','Light',19,'KAXS');
+INSERT INTO Event(EventId, eType, Severity, periodid, airportcode)
+VALUES('W-400463','Rain','Light',20,'KBLM');
