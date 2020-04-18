@@ -13,7 +13,7 @@ CREATE TABLE TimeZones (
 CREATE TABLE Periods (
     periodid NUMBER(20) NOT NULL PRIMARY KEY,
     starttime TIMESTAMP NOT NULL,
-    endtime TIMESTAMP,
+    endtime TIMESTAMP NOT NULL,
     timezone VARCHAR(63) NOT NULL REFERENCES TimeZones(timezone)
     );
     
@@ -55,7 +55,7 @@ CREATE TABLE Airport (
 
 CREATE TABLE Event (
     eventid VARCHAR(63) NOT NULL PRIMARY KEY,
-    eType VARCHAR(5) NOT NULL REFERENCES EventType(eType),
+    eType VARCHAR(63) NOT NULL REFERENCES EventType(eType),
     severity VARCHAR(63) NOT NULL REFERENCES EventSeverity(severity),
     periodid NUMBER(20) NOT NULL REFERENCES Periods(periodid),
     airportcode VARCHAR(63) NOT NULL REFERENCES Airport(airportcode)
