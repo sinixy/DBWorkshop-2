@@ -1,21 +1,21 @@
--- Запит 1 - вивести аеропорти та кількість зафіксованих ними явищ
+-- Р—Р°РїРёС‚ 1 - РІРёРІРµСЃС‚Рё Р°РµСЂРѕРїРѕСЂС‚Рё С‚Р° РєС–Р»СЊРєС–СЃС‚СЊ Р·Р°С„С–РєСЃРѕРІР°РЅРёС… РЅРёРјРё СЏРІРёС‰
 SELECT airportcode, COUNT(*) AS occured_events
 FROM Event
 GROUP BY airportcode;
 
--- Запит 2 - для кожного погодного явища вивести його відсоток відносно усієї кількості зафіксованих явищ
+-- Р—Р°РїРёС‚ 2 - РґР»СЏ РєРѕР¶РЅРѕРіРѕ РїРѕРіРѕРґРЅРѕРіРѕ СЏРІРёС‰Р° РІРёРІРµСЃС‚Рё Р№РѕРіРѕ РІС–РґСЃРѕС‚РѕРє РІС–РґРЅРѕСЃРЅРѕ СѓСЃС–С”С— РєС–Р»СЊРєРѕСЃС‚С– Р·Р°С„С–РєСЃРѕРІР°РЅРёС… СЏРІРёС‰
 SELECT eType AS event, ROUND(COUNT(eType) * 100 / (SELECT COUNT(*) FROM Event), 2)
 AS percentage
 FROM Event
 GROUP BY eType;
 
--- Запит 3 - вивести динаміку дощів по місяцях за 2016 рік
-SELECT month, COUNT(*) AS times_occured
+-- Р—Р°РїРёС‚ 3 - РІРёРІРµСЃС‚Рё РґРёРЅР°РјС–РєСѓ РґРѕС‰С–РІ РїРѕ РјС–СЃСЏС†СЏС… Р·Р° 2016 СЂС–Рє
+SELECT to_char(starttime, 'Month') AS month, COUNT(*) AS times_occured
 FROM (
-    SELECT EXTRACT(MONTH FROM starttime) AS month
+    SELECT starttime
     FROM Event
     JOIN Periods ON Event.periodid = Periods.periodid
     WHERE EXTRACT(YEAR FROM starttime) = '2016' AND EXTRACT(YEAR FROM endtime) = '2016' AND TRIM(eType)='Rain'
 )
-GROUP BY month
-ORDER BY month;
+GROUP BY to_char(starttime, 'Month')
+ORDER BY to_char(starttime, 'Month');
