@@ -12,7 +12,7 @@ def getId(url):
 
 username = 'system'
 password = 'databon'
-dsn = 'localhost'
+dsn = 'localhost/xe'
 connection = cx_Oracle.connect(username, password, dsn)
 cursor = connection.cursor()
 
