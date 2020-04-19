@@ -18,4 +18,4 @@ FROM (
     WHERE EXTRACT(YEAR FROM starttime) = '2016' AND EXTRACT(YEAR FROM endtime) = '2016' AND TRIM(eType)='Rain'
 )
 GROUP BY to_char(starttime, 'Month')
-ORDER BY to_char(starttime, 'Month');
+ORDER BY to_char(starttime, 'Month') DESC;
